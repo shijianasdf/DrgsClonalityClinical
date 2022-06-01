@@ -1,7 +1,7 @@
 
 load("D:/Rsources/Project/预后分析/克隆预后分析/结直肠癌克隆预后分析/Results/3.SurvivalKM/OS.byDriverGene.ClonalSubclonal.RData");
 load("D:/Rsources/Project/预后分析/克隆预后分析/结直肠癌克隆预后分析/Results/3.SurvivalKM/DFS.byDriverGene.ClonalSubclonal.RData");
-source()
+source("0.CodeLibrary/Cox.function.R")
 #处理清洗OS COX生存数据
 {
   OS.significant <- c("ANK1","ARID1A","CASP8","GRIN2A","SMAD2")
