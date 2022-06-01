@@ -1,11 +1,6 @@
 #-----------------------------
 #‘backward-stepwise cox model
 #-----------------------------
-# library(pec)
-# library(survival)
-# f <- selectCox(as.formula(paste("Surv(time,event)~",paste(colnames(COX.OS.all.gene)[-c(1:3)],collapse = "+"))),
-#                rule = "aic",data=COX.OS.all.gene)
-# f
 ##导入cox.os.all.gene OS生存数据
 load("D:/Rsources/Project/预后分析/克隆预后分析/结直肠癌克隆预后分析/Results/3.SurvivalKM/COX.OS.all.gene.RData")
 
@@ -24,14 +19,12 @@ mvcoxres <- function(mod){
 }
 library(MASS)
 library(survival)
-#pos <- complete.cases(COX.OS.all.gene[,c(2,3)])
 head(COX.OS.all.gene)
 coxmodel <- coxph(as.formula(paste("Surv(time,event)~",paste(colnames(COX.OS.all.gene)[-c(1:3)],collapse = "+"))),
                   data=na.omit(COX.OS.all.gene)) #stepAIC 不允许生存数据有NA
 summary(coxmodel)
 extractAIC(coxmodel)
 step.cox <- stepAIC(coxmodel,direction = "both",trace = F) #stepAIC 不允许生存数据有NA
-#step.cox.result <- summary(step.cox)
 stepwise.table <- mvcoxres(step.cox)
 
 
