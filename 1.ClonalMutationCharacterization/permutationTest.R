@@ -79,9 +79,6 @@ enrichment.plot <- ggplot(data=temp, aes(x=gene, y=obv, fill=factor(clonality,le
 print(enrichment.plot)
 dev.off()
 #ggsave(enrichment.plot,filename ="D:/Rsources/Project/预后分析/克隆预后分析/结直肠癌克隆预后分析/Results/1.刻画克隆性变异/permutation.test.result.pdf")
-temp[which(temp$fdr <= 0.1),]
-temp[which(temp$fdr <= 0.2),]
-temp[which(temp$fdr <= 0.25),]
 library(ggplot2)
 df <- data.frame(random.ratios=random.ratios)
 density.plot <- ggplot(df, aes(x=random.ratios)) + 
